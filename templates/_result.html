@@ -1,0 +1,23 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Resultado</title></head>
+  <body>
+    <h2>Resultado</h2>
+
+    <h3>Imagen LR (entrada)</h3>
+    <img src="{{ lr_url }}" width="300"><br>
+
+    <h3>Imagen HR reconstruida</h3>
+    <img src="{{ hr_url }}" width="300"><br>
+
+    <h3>Parámetros usados</h3>
+    <pre>{{ params }}</pre>
+
+    {% if cost_url %}
+    <h3>Coste</h3>
+    <img src="{{ cost_url }}" width="500">
+    {% endif %}
+
+    <br><a href="/">Volver</a>
+  </body>
+</html>
