@@ -1,33 +1,53 @@
 # Proyecto-Final
+# Proyecto de Super-Resolución de Imágenes
 
-Super-Resolución de Imágenes con Optimización y Flask
-Este proyecto implementa una aplicación web en Flask que realiza super-resolución de imágenes 
-El usuario puede elegir el algoritmo, número de iteraciones, el regularizador y visualizar el resultado final en la aplicación web.
+Este proyecto implementa un método simple de super-resolución de imágenes en escala de grises, utilizando descenso de gradiente y regularización variacional. 
+La aplicación está construida con Flask y permite subir una imagen de baja resolución (LR), configurar parámetros y obtener una reconstrucción de alta resolución (HR) desde una interfaz web.
 
-Instalacion: 
+## Estructura del proyecto
 
-python -m venv venv
-source venv/bin/activate        # Linux/Mac
-venv\Scripts\activate           # Windows
+superres-project/
+├── app.py
+├── superres/
+│ ├── core.py
+│ ├── gd.py
+│ └── init.py
+├── templates/
+│ ├── index.html
+│ └── result.html
+└── static/
+└── results/
+
+
+## Organización del código
+
+Para simplificar el proyecto, las funcionalidades se agrupan en los siguientes módulos:
+
+- **core.py**: contiene los operadores de degradación (A y Aᵀ), los regularizadores (L2 y Huber-TV) y las funciones auxiliares para manejo de imágenes.
+- **gd.py**: implementa el algoritmo de descenso de gradiente para resolver el problema de super-resolución.
+- **app.py**: define la aplicación Flask, las rutas web y la integración entre la interfaz y el algoritmo numérico.
+
+Esta organización evita la fragmentación excesiva del código y mantiene el proyecto compacto y fácil de seguir.
+
+## Requisitos
+
+- Python 3.9+
+- Flask
+- NumPy
+- SciPy
+- Pillow
+- Matplotlib
+
+## Ejecución
 
 Instalar dependencias:
-
-pip install -r requirements.txt
+```bash
+pip install flask numpy scipy pillow matplotlib
 
 Ejecutar:
-
 python app.py
 
-Cómo usar la demo paso a paso:
+Luego abrir:
+http://localhost:5000
 
-Abrir la app Flask
-Subir una imagen LR
-Elegir:
 
-número de iteraciones,
-  τ (learning rate)
-  λ (regularización)
-  tipo de regularizador (L2 grad / Huber)
-
-Ejecutar super-resolución
-Ver la imagen HR reconstruida
