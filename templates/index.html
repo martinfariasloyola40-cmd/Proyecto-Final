@@ -1,0 +1,29 @@
+<!doctype html>
+<html>
+  <head><meta charset="utf-8"><title>Super-resolution simple</title></head>
+  <body>
+    <h2>Super-resolution</h2>
+
+    <form action="/superresolution" method="post" enctype="multipart/form-data">
+
+      Imagen LR:<br>
+      <input type="file" name="image" required><br><br>
+
+      Regularización:<br>
+      <select name="reg">
+        <option value="l2">L2</option>
+        <option value="huber">Huber</option>
+      </select><br><br>
+
+      λ:<br><input name="lam" value="0.01"><br><br>
+      δ:<br><input name="delta" value="0.02"><br><br>
+      Iteraciones:<br><input name="iters" value="50"><br><br>
+      τ:<br><input name="tau" value="0.1"><br><br>
+      Factor s:<br><input name="s" value="2"><br><br>
+      Sigma blur:<br><input name="sigma" value="1.0"><br><br>
+
+      <button type="submit">Ejecutar</button>
+
+    </form>
+  </body>
+</html>
